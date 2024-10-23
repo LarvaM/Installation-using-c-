@@ -1,0 +1,40 @@
+#include <LiquidCrystal.h>
+
+
+
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+String message = " Yo creo que a veces nos contemplan por delante por detras por los costados unos ojos rencorosos de gallina más terribles que el agua podrida de las grutas incestuosos como los ojos de la madre que murió en el patíbulo";
+int ii = 0;
+int strLength;
+String toShow;
+
+void setup() {
+  strLength = message.length();
+  
+  // número de columnas y filas: 
+  lcd.begin(16, 1);
+  // Print mensaje en LCD.
+  lcd.print("LUIS BUNUEL");
+  delay(5000);
+
+  lcd.clear();
+  lcd.home();
+}
+
+void loop() {
+  lcd.home();
+
+  toShow = message.substring(ii,ii+16);
+  
+  lcd.print(toShow);
+
+  ii = ii + 2;
+
+  if(ii>(strLength-16)) {
+    ii = 0;
+  }
+
+  delay(700);
+}
