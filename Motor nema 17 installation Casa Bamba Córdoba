@@ -1,0 +1,28 @@
+#define STEP 4
+#define DIR 5
+
+void setup() {
+  pinMode(STEP, OUTPUT);
+  pinMode(DIR, OUTPUT);
+
+}
+
+void loop() {
+ 
+  digitalWrite(DIR, HIGH);
+  for(int i = 0; i < 200; i++){
+  digitalWrite(STEP, HIGH);
+  delay(10);
+  digitalWrite(STEP, LOW);
+  delay(10);
+  }
+ delay(200); 
+digitalWrite(DIR, LOW);
+  for(int i = 0; i < 200; i++){
+  digitalWrite(STEP, HIGH);
+  delay(10);
+  digitalWrite(STEP, LOW);
+  delay(10);
+  }
+delay(2000); 
+}
